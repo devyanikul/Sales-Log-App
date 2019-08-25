@@ -1,0 +1,81 @@
+<div>
+  <form [formGroup]="addlogForm" (change)="formChanged()">
+    <div class="row">
+      <div class="col-sm-6">
+        <h6>NEW TASK</h6>
+      </div>
+      <div class="col-sm-6 btn-group btn-group-toggle">
+        <button type="button" class="btn active mr-2" id="open" (click)="statusOpen()">Open</button>
+        <button type="button" class="btn" id="close" click="statusClosed()">Closed</button>
+      </div>
+    </div>
+    <div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Entity Name" formControlName="entityName" required>
+          <mat-error *ngIf="addlogForm.controls.entityName.hasError('required')">
+            Please enter entity name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-grid-list cols="2" rowHeight="65px">
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Date" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Last Name" value={{lname}} formControlName="lastname" required>
+              <mat-error *ngIf="addlogForm.controls.lastname.hasError('required')">
+                Please enter last name
+              </mat-error>
+              <mat-error *ngIf="addlogForm.controls.lastname.hasError('pattern')">
+                Please enter valid last name
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div>
+        <mat-form-field>
+          <mat-select matInput formControlName="taskType">
+            <mat-option *ngFor="let task of taskTypeList" [value]="task">{{task}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+          <mat-error *ngIf="addlogForm.controls.phoneNumber.hasError('required')">
+            Please enter phone number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Contact Person" formControlName="contactPerson" required>
+          <mat-error *ngIf="addlogForm.controls.contactPerson.hasError('required')">
+            Please enter contact person name
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput formControlName="note" placeholder="Note (Opional)">
+        </mat-form-field>
+      </div>
+
+      <div class="btn-sec">
+        <button mat-raised-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
+        <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="onaddlog()">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
