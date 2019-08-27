@@ -1,7 +1,7 @@
 import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-new-log-modal',
@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-log-modal.component.scss']
 })
 export class NewLogModalComponent implements OnInit {
-  public addlogForm: FormGroup;
-  public taskTypeList = ['Call', 'Video Call', 'meeting'];
+  addlogForm: FormGroup;
+  taskTypeList = ['Call', 'Video Call', 'meeting'];
+  time = {hour: 13, minute: 30};
   
   wasFormChanged = false;
+  status: string = 'open';
 
   constructor(
     private fb: FormBuilder,
@@ -33,9 +35,16 @@ export class NewLogModalComponent implements OnInit {
 
   public onAddlog(): void {
     this.markAsDirty(this.addlogForm);
+    const formControl = this.addlogForm.controls;
     if(!this.addlogForm.errors) {
       let logDetails = {
-        
+        "date": formControl.date.value,
+        "entityName": formControl.entityName,
+        "taskType": formControl.taskType,
+        "time": "1:00 PM",
+        "contactPerson": formControl.contactPerson,
+        "notes": formControl.notes,
+        "status": this.status
       }
     }
   }
@@ -57,7 +66,11 @@ export class NewLogModalComponent implements OnInit {
   }
 
   statusOpen() {
+    this.status = 'open';
+  }
 
+  statusClosed() {
+    this.status = 'closed';
   }
 
 }

@@ -7,9 +7,22 @@
     <mat-option *ngFor="let task of taskType" [value]="task">{{task}}</mat-option>
   </mat-select>
 </mat-form-field>
-{{dataSource}}
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="contactPersonFilter" placeholder="Contact Person">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="NotesFilter" placeholder="Notes">
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select placeholder="Status" [formControl]="statusFilter" multiple>
+    <mat-option *ngFor="let statusType of status" [value]="statusType">{{statusType}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
 
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef> Date
@@ -57,4 +70,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-hello 2

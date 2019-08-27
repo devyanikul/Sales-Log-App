@@ -1,29 +1,29 @@
 [
     {
-        "Date": "12/03/2019",
-        "Entity Name": "PQR Private Limited",
-        "Task Type": "Meeting",
-        "Time": "1:00 PM",
-        "Contect Person": "Sansa Stark",
-        "Notes": "Lorem ipsum",
-        "Status": "Open"
+        "date": "12/03/2019",
+        "entityName": "PQR Private Limited",
+        "taskType": "Meeting",
+        "time": "1:00 PM",
+        "contactPerson": "Sansa Stark",
+        "notes": "Lorem ipsum",
+        "status": "Open"
     },
     {
-        "Date": "12/03/2019",
-        "Entity Name": "STU Private Limited",
-        "Task Type": "Call",
-        "Time": "1:00 PM",
-        "Contect Person": "Frodo Baggins",
-        "Notes": "Lorem ipsum",
-        "Status": "Open"
+        "date": "12/03/2019",
+        "entityName": "STU Private Limited",
+        "taskType": "Call",
+        "time": "1:00 PM",
+        "contactPerson": "Frodo Baggins",
+        "notes": "Lorem ipsum",
+        "status": "Open"
     },
     {
-        "Date": "12/03/2019",
-        "Entity Name": "ABC Private Limited",
-        "Task Type": "Call",
-        "Time": "1:00 PM",
-        "Contect Person": "Sarah Connor",
-        "Notes": "Lorem ipsum",
-        "Status": "Closed"
+        "date": "12/03/2019",
+        "entityName": "ABC Private Limited",
+        "taskType": "Call",
+        "time": "1:00 PM",
+        "contactPerson": "Sarah Connor",
+        "notes": "Lorem ipsum",
+        "status": "Closed"
     }
 ]

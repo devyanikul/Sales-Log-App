@@ -23,7 +23,7 @@
         <mat-grid-tile>
           <div class="text-inside">
             <mat-form-field>
-              <input matInput [matDatepicker]="picker1" placeholder="Date" formControlName="date">
+              <input matInput placeholder="Date" formControlName="date">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -31,15 +31,11 @@
         </mat-grid-tile>
         <mat-grid-tile>
           <div class="text-inside">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Last Name" value={{lname}} formControlName="lastname" required>
-              <mat-error *ngIf="addlogForm.controls.lastname.hasError('required')">
-                Please enter last name
-              </mat-error>
-              <mat-error *ngIf="addlogForm.controls.lastname.hasError('pattern')">
-                Please enter valid last name
-              </mat-error>
-            </mat-form-field>
+            <!-- <mat-form-field>
+              <input matInput [matTimepicker]="picker1" placeholder="Date" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field> -->
           </div>
         </mat-grid-tile>
       </mat-grid-list>

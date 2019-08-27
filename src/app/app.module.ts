@@ -5,6 +5,7 @@ import { MatDialogModule, MatGridListModule, MatInputModule, MatDatepickerModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SalesLogComponent } from './sales-log/sales-log.component';
@@ -30,7 +31,8 @@ export class MaterialModule {}
     FormsModule, 
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
