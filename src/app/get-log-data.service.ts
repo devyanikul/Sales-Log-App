@@ -9,7 +9,11 @@ export class GetLogDataService {
 
   constructor(private http: HttpClient) { }
 
-  public getLogJSON(): Observable<any> {
-    return this.http.get("./assets/logs.ts");
+  getLogJSON(): Observable<any> {
+    return this.http.get("./assets/logs.json");
+  }
+
+  postLog(body): Observable<any> {
+    return this.http.post('/appendLog', body);
   }
 }

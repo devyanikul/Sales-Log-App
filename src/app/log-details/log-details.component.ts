@@ -30,11 +30,9 @@ export class LogDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.logDataService.getLogJSON().subscribe(data => {
-      this.logArray = data;
+      this.logArray = data.logs;
       this.dataSource = new MatTableDataSource(this.logArray);
       this.filterData();
-      console.log(this.dataSource);
-      console.log(this.logArray);
     });
   }
 

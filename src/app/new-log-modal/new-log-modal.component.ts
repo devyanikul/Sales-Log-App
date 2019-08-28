@@ -2,6 +2,7 @@ import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { GetLogDataService } from '../get-log-data.service';
 
 @Component({
   selector: 'app-new-log-modal',
@@ -18,10 +19,11 @@ export class NewLogModalComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private logDataService: GetLogDataService
   ) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.addlogForm = this.fb.group({
       entityName: ['', [Validators.required]],
       lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+([a-zA-Z ]+)*')]],
@@ -33,7 +35,7 @@ export class NewLogModalComponent implements OnInit {
     });
   }
 
-  public onAddlog(): void {
+  onAddlog(): void {
     this.markAsDirty(this.addlogForm);
     const formControl = this.addlogForm.controls;
     if(!this.addlogForm.errors) {
@@ -46,6 +48,7 @@ export class NewLogModalComponent implements OnInit {
         "notes": formControl.notes,
         "status": this.status
       }
+      this.logDataService.postLog(logDetails);
     }
   }
 
