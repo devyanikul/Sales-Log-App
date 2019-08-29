@@ -9,7 +9,9 @@
         <button class="p-1" (click)="openNewLogDialog()">New Task</button>
       </div>
     </div>
-    <app-log-details></app-log-details>
+    <app-log-details
+    (showNewLogDetails) = 'showNewLog'>
+    </app-log-details>
   </div>
 </div>
 

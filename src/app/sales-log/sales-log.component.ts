@@ -10,6 +10,8 @@ import { NewLogModalComponent } from '../new-log-modal/new-log-modal.component';
 })
 export class SalesLogComponent implements OnInit {
 
+  showNewLog: boolean;
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -19,6 +21,10 @@ export class SalesLogComponent implements OnInit {
     const dialogRef = this.dialog.open(NewLogModalComponent,{
       width: '400px',disableClose: true 
     });
+    dialogRef.afterClosed().subscribe(value => {
+      if(value === 'success') {
+        this.showNewLog = true;
+      } 
+    });
   }
-
 }

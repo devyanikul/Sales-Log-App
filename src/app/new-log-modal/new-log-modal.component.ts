@@ -20,7 +20,8 @@ export class NewLogModalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private logDataService: GetLogDataService
+    private logDataService: GetLogDataService,
+    public dialogRef: MatDialogRef<NewLogModalComponent>
   ) { }
 
   ngOnInit(): void {
@@ -36,32 +37,27 @@ export class NewLogModalComponent implements OnInit {
   }
 
   onAddlog(): void {
-    this.markAsDirty(this.addlogForm);
     const formControl = this.addlogForm.controls;
     if(!this.addlogForm.errors) {
       let logDetails = {
         "date": formControl.date.value,
-        "entityName": formControl.entityName,
-        "taskType": formControl.taskType,
+        "entityName": formControl.entityName.value,
+        "taskType": formControl.taskType.value,
         "time": "1:00 PM",
-        "contactPerson": formControl.contactPerson,
-        "notes": formControl.notes,
+        "contactPerson": formControl.contactPerson.value,
+        "notes": formControl.note.value,
         "status": this.status
       }
-      this.logDataService.postLog(logDetails);
+      this.logDataService.postLog(logDetails).subscribe(res => {
+        if (res === 'success') {
+          this.dialogRef.close(res);
+        }
+      })
     }
   }
 
   closeDialog(): void {
-    this.dialog.closeAll();
-  }
-
-  private markAsDirty(group: FormGroup): void {
-    group.markAsDirty();
-    // tslint:disable-next-line:forin
-    for (const i in group.controls) {
-      group.controls[i].markAsDirty();
-    }
+    this.dialogRef.close();
   }
 
   formChanged() {
