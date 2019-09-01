@@ -1,44 +1,43 @@
 <div>
-  <form [formGroup]="addlogForm" (change)="formChanged()">
-    <div class="row">
+  <form [formGroup]="addlogForm">
+    <div class="row mb-3">
       <div class="col-sm-6">
         <h6>NEW TASK</h6>
       </div>
-      <div class="col-sm-6 btn-group btn-group-toggle">
-        <button type="button" class="btn active mr-2" id="open" (click)="statusOpen()">Open</button>
-        <button type="button" class="btn" id="close" click="statusClosed()">Closed</button>
+      <div class="col-sm-6">
+        <button type="button" class="btn mr-2" id="open" (click)="statusOpen()">Open</button>
+        <button type="button" class="btn" id="close" (click)="statusClosed()">Closed</button>
       </div>
     </div>
     <div>
       <div>
         <mat-form-field>
-          <input matInput placeholder="Entity Name" formControlName="entityName" required>
+          <input matInput placeholder="Entity Name" formControlName="entityName" autocomplete="off">
           <mat-error *ngIf="addlogForm.controls.entityName.hasError('required')">
             Please enter entity name
           </mat-error>
         </mat-form-field>
       </div>
 
-      <mat-grid-list cols="2" rowHeight="65px">
+      <mat-grid-list cols="2" rowHeight="65px" style="width:300px">
         <mat-grid-tile>
           <div class="text-inside">
             <mat-form-field>
-              <input matInput [matDatepicker]="picker1"  placeholder="Date" formControlName="date">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
+              <input matInput [matDatepicker]="picker"  placeholder="Date" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
         </mat-grid-tile>
         <mat-grid-tile>
           <div class="text-inside">
-            <!-- <mat-form-field>
-              <input matInput [matTimepicker]="picker1" placeholder="Date" formControlName="date">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field> -->
+            <mat-form-field>
+              <input matInput placeholder="Time" formControlName="time" mask="00:00">
+            </mat-form-field>
           </div>
         </mat-grid-tile>
       </mat-grid-list>
+      
       <div>
         <mat-form-field>
           <mat-select matInput formControlName="taskType">
@@ -48,7 +47,7 @@
       </div>
       <div>
         <mat-form-field>
-          <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+          <input matInput placeholder="Phone Number" formControlName="phoneNumber" mask="0000000000" autocomplete="off">
           <mat-error *ngIf="addlogForm.controls.phoneNumber.hasError('required')">
             Please enter phone number
           </mat-error>
@@ -69,8 +68,8 @@
       </div>
 
       <div class="btn-sec">
-        <button mat-raised-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
-        <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="onAddlog()">Save</button>
+        <button type="button" class="mr-1" (click)="closeDialog()">Cancel</button>
+        <button type="button" style="background-color: #0f6fa3d8" (click)="onAddlog()">Save</button>
       </div>
     </div>
   </form>

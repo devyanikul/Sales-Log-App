@@ -5,7 +5,7 @@ import { MatDialogModule, MatGridListModule, MatInputModule, MatDatepickerModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule } from 'ngx-mask'
 
 import { AppComponent } from './app.component';
 import { SalesLogComponent } from './sales-log/sales-log.component';
@@ -32,10 +32,10 @@ export class MaterialModule {}
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    NgbModule
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NewLogModalComponent, LogDetailsComponent]
+  entryComponents: [NewLogModalComponent]
 })
 export class AppModule { }

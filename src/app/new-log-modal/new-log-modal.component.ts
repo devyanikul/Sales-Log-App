@@ -1,7 +1,6 @@
-import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GetLogDataService } from '../get-log-data.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class NewLogModalComponent implements OnInit {
   time = {hour: 13, minute: 30};
   
   wasFormChanged = false;
-  status: string = 'open';
+  status: string = 'Open';
 
   constructor(
     private fb: FormBuilder,
@@ -27,9 +26,9 @@ export class NewLogModalComponent implements OnInit {
   ngOnInit(): void {
     this.addlogForm = this.fb.group({
       entityName: ['', [Validators.required]],
-      lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+([a-zA-Z ]+)*')]],
       contactPerson: [null, [Validators.required]],
       phoneNumber: [null, [Validators.required]],
+      time:[null, [Validators.required]],
       taskType: [null, [Validators.required]],
       date: [null, [Validators.required]],
       note: [null]
@@ -46,13 +45,14 @@ export class NewLogModalComponent implements OnInit {
         "time": "1:00 PM",
         "contactPerson": formControl.contactPerson.value,
         "notes": formControl.note.value,
-        "status": this.status
+        "status": this.status,
+        "id": "idx-"+Date.now().toPrecision()
       }
       this.logDataService.postLog(logDetails).subscribe(res => {
-        if (res === 'success') {
-          this.dialogRef.close(res);
+        if(res && res.contactPerson) {
+          this.dialogRef.close('true');
         }
-      })
+      });
     }
   }
 
@@ -65,11 +65,11 @@ export class NewLogModalComponent implements OnInit {
   }
 
   statusOpen() {
-    this.status = 'open';
+    this.status = 'Open';
   }
 
   statusClosed() {
-    this.status = 'closed';
+    this.status = 'Closed';
   }
 
 }

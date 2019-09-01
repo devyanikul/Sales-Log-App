@@ -1,31 +1,51 @@
 {
-    "logs": [
-        {
-            "date": "12/03/2019",
-            "entityName": "PQR Private Limited",
-            "taskType": "Meeting",
-            "time": "1:00 PM",
-            "contactPerson": "Sansa Stark",
-            "notes": "Lorem ipsum",
-            "status": "Open"
-        },
-        {
-            "date": "12/03/2019",
-            "entityName": "STU Private Limited",
-            "taskType": "Call",
-            "time": "1:00 PM",
-            "contactPerson": "Frodo Baggins",
-            "notes": "Lorem ipsum",
-            "status": "Open"
-        },
-        {
-            "date": "12/03/2019",
-            "entityName": "ABC Private Limited",
-            "taskType": "Call",
-            "time": "1:00 PM",
-            "contactPerson": "Sarah Connor",
-            "notes": "Lorem ipsum",
-            "status": "Closed"
-        }
-    ]
+  "logs": [
+    {
+      "date": "12/03/2019",
+      "entityName": "PQR Private Limited",
+      "taskType": "Meeting",
+      "time": "1:00 PM",
+      "contactPerson": "Sansa Stark",
+      "notes": "Lorem ipsum",
+      "status": "Open"
+    },
+    {
+      "date": "12/03/2019",
+      "entityName": "STU Private Limited",
+      "taskType": "Call",
+      "time": "1:00 PM",
+      "contactPerson": "Frodo Baggins",
+      "notes": "Lorem ipsum",
+      "status": "Open"
+    },
+    {
+      "date": "12/03/2019",
+      "entityName": "ABC Private Limited",
+      "taskType": "Call",
+      "time": "1:00 PM",
+      "contactPerson": "Sarah Connor",
+      "notes": "Lorem ipsum",
+      "status": "Closed"
+    },
+    {
+      "date": "2019-09-09T18:30:00.000Z",
+      "entityName": "ABC Private Limited",
+      "taskType": "Video Call",
+      "time": "1:00 PM",
+      "contactPerson": "Sansa Stark",
+      "notes": null,
+      "status": "Open",
+      "id": "idx-1567352727740"
+    },
+    {
+      "date": "2019-09-03T18:30:00.000Z",
+      "entityName": "PQR Private Limited",
+      "taskType": "Video Call",
+      "time": "1:00 PM",
+      "contactPerson": "Jon Snow",
+      "notes": null,
+      "status": "Closed",
+      "id": "idx-1567352957014"
+    }
+  ]
 }

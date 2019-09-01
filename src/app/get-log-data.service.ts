@@ -6,14 +6,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GetLogDataService {
+  baseUrl: string = "http://localhost:8080/"
 
   constructor(private http: HttpClient) { }
 
   getLogJSON(): Observable<any> {
-    return this.http.get("./assets/logs.json");
+    return this.http.get(this.baseUrl + "logs");
   }
 
   postLog(body): Observable<any> {
-    return this.http.post('http://localhost:8080/appendLog', "hello");
+    return this.http.post(this.baseUrl + "logs", body);
   }
 }

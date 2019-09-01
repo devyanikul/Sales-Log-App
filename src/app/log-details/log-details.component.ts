@@ -30,7 +30,7 @@ export class LogDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.logDataService.getLogJSON().subscribe(data => {
-      this.logArray = data.logs;
+      this.logArray = data;
       this.dataSource = new MatTableDataSource(this.logArray);
       this.filterData();
     });
@@ -73,6 +73,12 @@ export class LogDetailsComponent implements OnInit {
       if (searchString.taskType.length) {
         for (const d of searchString.taskType) {
           if (data.taskType.toString().trim() == d) {
+            isPositionAvailable = true;
+          }
+        }
+      } else if (searchString.status.length) {
+        for (const d of searchString.status) {
+          if (data.status.toString().trim() == d) {
             isPositionAvailable = true;
           }
         }

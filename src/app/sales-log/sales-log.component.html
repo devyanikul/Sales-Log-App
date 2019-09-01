@@ -6,12 +6,13 @@
         <h4 class="p-1">Sales Log</h4>
       </div>
       <div class="col-md-2 m-3">
-        <button class="p-1" (click)="openNewLogDialog()">New Task</button>
+        <button (click)="openNewLogDialog()">
+          <i class="material-icons pt-2" style="position: absolute; left: 18px; top:-4px;">control_point</i>
+            New Task
+        </button>
       </div>
     </div>
-    <app-log-details
-    (showNewLogDetails) = 'showNewLog'>
-    </app-log-details>
+    <app-log-details></app-log-details>
   </div>
 </div>
 
